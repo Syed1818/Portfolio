@@ -247,6 +247,7 @@ export type Experience = {
 
 export const EXPERIENCE = [
   {
+    id: "nexinbe", // Added ID to fix the build error
     company: "Nexinbe",
     location: "Remote",
     title: "AI Chatbot Developer Intern",
@@ -256,6 +257,7 @@ export const EXPERIENCE = [
     skills: [SkillNames.PYTHON, SkillNames.JS, SkillNames.NODEJS],
   },
   {
+    id: "presidency", // Added ID to fix the build error
     company: "Presidency University",
     location: "Bengaluru",
     title: "Team Leader (Youth Summit)",
@@ -265,6 +267,7 @@ export const EXPERIENCE = [
     skills: [],
   },
 ];
+
 export const themeDisclaimers = {
   light: [
     "Warning: Light mode emits a gazillion lumens of pure radiance!",
