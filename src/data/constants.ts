@@ -245,47 +245,26 @@ export type Experience = {
   skills: SkillNames[];
 };
 
-export const EXPERIENCE: Experience[] = [
+export const EXPERIENCE = [
   {
-    id: 1,
-    startDate: "Dec 2024",
-    endDate: "Present",
-    title: "Full Stack Engineer",
-    company: "OmniNexus",
-    description: [
-      "Developing scalable full-stack applications involved in complex systems.",
-      "Optimizing database performance and query efficiency.",
-      "Collaborating on architectural decisions and technical strategy.",
-    ],
-    skills: [
-      SkillNames.NEXTJS,
-      SkillNames.TS,
-      SkillNames.POSTGRES,
-      SkillNames.DOCKER,
-      SkillNames.AWS,
-    ],
+    company: "Nexinbe",
+    location: "Remote",
+    title: "AI Chatbot Developer Intern",
+    date: "Feb 2024 - Present",
+    description:
+      "Designed and deployed AI chatbots using Voiceflow to automate customer interactions. Defined intents, conversation flows, and integrated APIs for seamless performance. Optimized chatbot performance, improving user engagement and reducing support workload.",
+    skills: [SkillNames.PYTHON, SkillNames.JS, SkillNames.NODEJS],
   },
   {
-    id: 2,
-    startDate: "Apr 2022",
-    endDate: "Dec 2024",
-    title: "Freelance Developer",
-    company: "Live & Learn",
-    description: [
-      "Delivered custom web solutions for diverse clients.",
-      "Managed full project lifecycles from design to deployment.",
-      "Maintained high client satisfaction through effective communication.",
-    ],
-    skills: [
-      SkillNames.REACT,
-      SkillNames.NODEJS,
-      SkillNames.MONGODB,
-      SkillNames.TAILWIND,
-      SkillNames.WORDPRESS,
-    ],
+    company: "Presidency University",
+    location: "Bengaluru",
+    title: "Team Leader (Youth Summit)",
+    date: "2024",
+    description:
+      "Served as a Team Leader for promoting India's Largest Youth Summit Event. Demonstrated strong leadership and communication skills while coordinating with team members to ensure successful event promotion.",
+    skills: [],
   },
 ];
-
 export const themeDisclaimers = {
   light: [
     "Warning: Light mode emits a gazillion lumens of pure radiance!",
