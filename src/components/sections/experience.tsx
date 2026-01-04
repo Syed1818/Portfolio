@@ -70,16 +70,14 @@ const ExperienceCard = ({
               </div>
             </div>
             <Badge variant="secondary" className="w-fit font-mono text-xs font-normal">
-              {experience.startDate} - {experience.endDate}
+              {experience.date}
             </Badge>
           </div>
         </CardHeader>
         <CardContent className="space-y-6">
-          <ul className="list-disc list-outside ml-4 space-y-2 text-base text-muted-foreground leading-relaxed">
-            {experience.description.map((point, i) => (
-              <li key={i}>{point}</li>
-            ))}
-          </ul>
+          <div className="text-base text-muted-foreground leading-relaxed">
+            {experience.description}
+          </div>
 
           <div className="flex flex-wrap gap-2">
             {experience.skills.map((skillName) => {
