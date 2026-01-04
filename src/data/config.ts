@@ -21,12 +21,12 @@ const config = {
     "Framer Motion",
   ],
   author: "Syed Shahid",
-  email: "syed.shahid@example.com", // REPLACE with your actual email
-  site: "https://syedshahid.site", // REPLACE with your actual site URL
+  email: "no-reply@syedshahid.online", // REPLACE with your actual email
+  site: "https://syedshahid.online", // REPLACE with your actual site URL
 
   // for github stars button
   githubUsername: "syed1818", // REPLACE with your GitHub username
-  githubRepo: "",
+  githubRepo: "Portfolio",
 
   get ogImg() {
     return this.site + "/assets/seo/og-image.png";
@@ -34,7 +34,7 @@ const config = {
   social: {
     twitter: "https://x.com/syedshahid", // REPLACE with your link
     linkedin: "https://www.linkedin.com/in/syedshahid18", // REPLACE with your link
-    instagram: "https://www.instagram.com/syedshahid", // REPLACE with your link
+    instagram: "https://www.instagram.com/_.syed__shahid._", // REPLACE with your link
     facebook: "https://www.facebook.com/syedshahid/", // REPLACE with your link
     github: "https://github.com/syed1818", // REPLACE with your link
   },
