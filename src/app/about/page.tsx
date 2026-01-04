@@ -43,26 +43,26 @@ import { TbTerminal2 } from "react-icons/tb";
 const CONTACT_LINKS = [
   {
     name: "Email",
-    content: "syed.shahid@example.com", // REPLACE with your email
-    href: "mailto:syed.shahid@example.com",
+    content: "syedshahid.9380@gmail.com", // REPLACE with your email
+    href: "mailto:syedshahid.9380@gmail.com",
     icon: <FaEnvelope height={"50px"} />,
   },
   {
     name: "Phone",
-    content: "+91 1234567890", // REPLACE with your phone number
-    href: "tel:1234567890",
+    content: "+91 9380393734", // REPLACE with your phone number
+    href: "tel:9380393734",
     icon: <FaPhone height={"50px"} />,
   },
   {
     name: "LinkedIn",
-    href: "https://www.linkedin.com/in/syed-shahid/", // REPLACE with your link
-    content: "/syed-shahid",
+    href: "https://www.linkedin.com/in/syedshahid18/", // REPLACE with your link
+    content: "/syedshahid18",
     icon: <FaLinkedin height={"50px"} />,
   },
   {
     name: "GitHub",
-    href: "https://github.com/syed-shahid", // REPLACE with your link
-    content: "/syed-shahid",
+    href: "https://github.com/syed1818", // REPLACE with your link
+    content: "/syed1818",
     icon: <FaGithub height={"50px"} />,
   },
 ];
