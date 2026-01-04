@@ -248,7 +248,7 @@ function Page() {
                   className="rounded-full p-4 lg:p-10 w-[100px] md:w-[150px] lg:w-[200px] aspect-square  bg-zinc-800"
                   alt="me"
                   // UPDATED: Changed extension to .jfif
-                  src="/assets/me.jfif" 
+                  src="/assets/me.JPG" 
                 />
               </div>
               <div className="flex flex-col gap-3 lg:items-center ml-10 md:ml-20 lg:ml-0">
