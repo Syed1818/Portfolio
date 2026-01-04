@@ -21,7 +21,7 @@ const config = {
     "Framer Motion",
   ],
   author: "Syed Shahid",
-  email: "no-reply@syedshahid.online", // REPLACE with your actual email
+  email: "syedshahid.9380@gmail.com", // REPLACE with your actual email
   site: "https://syedshahid.online", // REPLACE with your actual site URL
 
   // for github stars button
