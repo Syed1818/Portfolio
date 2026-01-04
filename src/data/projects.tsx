@@ -13,8 +13,8 @@ import {
   SiFirebase,
   SiJavascript,
   SiMongodb,
-  SiMysql, // Added for your E-Learning project
-  SiPhp,   // Added for your E-Learning project
+  SiMysql,
+  SiPhp,
   SiPostgresql,
   SiPrisma,
   SiPython,
@@ -27,6 +27,8 @@ import {
   SiThreedotjs,
   SiTypescript,
   SiVuedotjs,
+  SiHtml5,
+  SiCss3,
 } from "react-icons/si";
 import { TbBrandFramerMotion } from "react-icons/tb";
 
@@ -221,6 +223,18 @@ const PROJECT_SKILLS = {
     fg: "white",
     icon: <SiMysql />,
   },
+  html: {
+    title: "HTML",
+    bg: "black",
+    fg: "white",
+    icon: <SiHtml5 />,
+  },
+  css: {
+    title: "CSS",
+    bg: "black",
+    fg: "white",
+    icon: <SiCss3 />,
+  },
 };
 
 export type Project = {
@@ -237,10 +251,88 @@ export type Project = {
 
 const projects: Project[] = [
   {
+    id: "gloati-skincare",
+    category: "E-Commerce",
+    title: "Gloati Skincare",
+    src: "/assets/projects-screenshots/codingducks/landing.png", // Replace with a real screenshot of Gloati
+    screenshots: ["landing.png"], // Add real screenshots to public/assets/projects-screenshots/gloati/
+    live: "https://github.com/syed1818/gloati", // Update with actual live link if available
+    github: "https://github.com/syed1818/gloati",
+    skills: {
+      frontend: [
+        PROJECT_SKILLS.html,
+        PROJECT_SKILLS.css,
+        PROJECT_SKILLS.js,
+      ],
+      backend: [
+        PROJECT_SKILLS.php,
+        PROJECT_SKILLS.mysql,
+      ],
+    },
+    get content() {
+      return (
+        <div>
+          <TypographyP className="font-mono text-2xl text-center">
+            Gloati | Skincare That Glows
+          </TypographyP>
+          <TypographyP className="font-mono text-center mb-4">
+            A full-stack e-commerce platform for natural skincare products.
+          </TypographyP>
+          <ProjectsLinks live={this.live} repo={this.github} />
+          
+          <TypographyH3 className="my-4 mt-8">Key Features</TypographyH3>
+          <ul className="list-disc ml-6 font-mono">
+             <li>**User System:** Secure authentication (Login/Register) and user dashboard.</li>
+             <li>**Admin Panel:** Manage products, orders, and users from a central dashboard.</li>
+             <li>**Invoicing:** Automated PDF invoice generation using FPDF/tFPDF.</li>
+             <li>**Shopping Cart:** Fully functional cart and checkout process.</li>
+          </ul>
+        </div>
+      );
+    },
+  },
+  {
+    id: "fashion-store",
+    category: "E-Commerce",
+    title: "Fashion Store",
+    src: "/assets/projects-screenshots/codingducks/landing.png", // Replace with a real screenshot
+    screenshots: ["landing.png"],
+    live: "https://github.com/syed1818/testshopify",
+    github: "https://github.com/syed1818/testshopify",
+    skills: {
+      frontend: [
+        PROJECT_SKILLS.html,
+        PROJECT_SKILLS.css,
+        PROJECT_SKILLS.js,
+      ],
+      backend: [],
+    },
+    get content() {
+      return (
+        <div>
+          <TypographyP className="font-mono text-2xl text-center">
+            Modern Fashion Store
+          </TypographyP>
+          <TypographyP className="font-mono text-center mb-4">
+            A responsive frontend template for a fashion e-commerce store.
+          </TypographyP>
+          <ProjectsLinks live={this.live} repo={this.github} />
+          
+          <TypographyH3 className="my-4 mt-8">Features</TypographyH3>
+          <ul className="list-disc ml-6 font-mono">
+             <li>**Responsive Design:** Optimized for mobile and desktop viewing.</li>
+             <li>**Product Showcase:** Clean layout for displaying fashion items like clothing and accessories.</li>
+             <li>**Interactive UI:** Smooth transitions and shopping interface elements.</li>
+          </ul>
+        </div>
+      );
+    },
+  },
+  {
     id: "secure-vault",
     category: "Security",
     title: "Secure Vault",
-    src: "/assets/projects-screenshots/codingducks/landing.png", // Use a placeholder image until you upload a real screenshot
+    src: "/assets/projects-screenshots/codingducks/landing.png",
     screenshots: ["landing.png"],
     skills: {
       frontend: [
@@ -253,7 +345,7 @@ const projects: Project[] = [
         PROJECT_SKILLS.express,
       ],
     },
-    live: "https://github.com/syed1818/secure-vault", // Link to repo as live demo isn't available
+    live: "https://github.com/syed1818/secure-vault",
     github: "https://github.com/syed1818/secure-vault",
     get content() {
       return (
@@ -281,14 +373,14 @@ const projects: Project[] = [
     id: "lms-system",
     category: "Education",
     title: "E-Learning System",
-    src: "/assets/projects-screenshots/ghostchat/1.png", // Use a placeholder image
+    src: "/assets/projects-screenshots/ghostchat/1.png",
     screenshots: ["1.png"],
     live: "https://github.com/syed1818",
     github: "https://github.com/syed1818",
     skills: {
       frontend: [
         PROJECT_SKILLS.js,
-        PROJECT_SKILLS.tailwind, // Assuming tailwind/bootstrap usage
+        PROJECT_SKILLS.tailwind,
       ],
       backend: [
         PROJECT_SKILLS.php,
