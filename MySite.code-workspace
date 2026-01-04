@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "../MySite"
+		},
+		{
+			"name": "Portfolio",
+			"path": "../MySite/Portfolio"
+		}
+	],
+	"settings": {}
+}
