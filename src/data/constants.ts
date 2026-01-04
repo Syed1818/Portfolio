@@ -1,4 +1,3 @@
-// thoda zada ts ho gya idhar
 export enum SkillNames {
   JS = "js",
   TS = "ts",
@@ -24,7 +23,9 @@ export enum SkillNames {
   AWS = "aws",
   VIM = "vim",
   VERCEL = "vercel",
+  PYTHON = "python", // Added missing Python
 }
+
 export type Skill = {
   id: number;
   name: string;
@@ -33,6 +34,7 @@ export type Skill = {
   color: string;
   icon: string;
 };
+
 export const SKILLS: Record<SkillNames, Skill> = {
   [SkillNames.JS]: {
     id: 1,
@@ -233,21 +235,29 @@ using use = useUsing("use")`,
     color: "#6cc24a",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg",
   },
+  [SkillNames.PYTHON]: {
+    id: 25,
+    name: "python",
+    label: "Python",
+    shortDescription: "handling data like a boss, ssssseriously! 🐍🤖",
+    color: "#3776ab",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+  },
 };
 
 export type Experience = {
-  id: number;
-  startDate: string;
-  endDate: string;
-  title: string;
+  id: string; // Changed to string to match data
   company: string;
-  description: string[];
+  location: string;
+  title: string;
+  date: string;
+  description: string;
   skills: SkillNames[];
 };
 
-export const EXPERIENCE = [
+export const EXPERIENCE: Experience[] = [
   {
-    id: "nexinbe", // Added ID to fix the build error
+    id: "nexinbe",
     company: "Nexinbe",
     location: "Remote",
     title: "AI Chatbot Developer Intern",
@@ -257,7 +267,7 @@ export const EXPERIENCE = [
     skills: [SkillNames.PYTHON, SkillNames.JS, SkillNames.NODEJS],
   },
   {
-    id: "presidency", // Added ID to fix the build error
+    id: "presidency",
     company: "Presidency University",
     location: "Bengaluru",
     title: "Team Leader (Youth Summit)",
@@ -284,4 +294,3 @@ export const themeDisclaimers = {
     "Dark mode on! Finally, someone who understands true sophistication.",
   ],
 };
-
