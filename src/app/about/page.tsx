@@ -43,25 +43,25 @@ import { TbTerminal2 } from "react-icons/tb";
 const CONTACT_LINKS = [
   {
     name: "Email",
-    content: "syedshahid.9380@gmail.com", 
+    content: "syedshahid.9380@gmail.com",
     href: "mailto:syedshahid.9380@gmail.com",
     icon: <FaEnvelope height={"50px"} />,
   },
   {
     name: "Phone",
-    content: "+91 9380393734", 
+    content: "+91 9380393734",
     href: "tel:9380393734",
     icon: <FaPhone height={"50px"} />,
   },
   {
     name: "LinkedIn",
-    href: "https://www.linkedin.com/in/syedshahid18/", 
+    href: "https://www.linkedin.com/in/syedshahid18/",
     content: "/syedshahid18",
     icon: <FaLinkedin height={"50px"} />,
   },
   {
     name: "GitHub",
-    href: "https://github.com/syed1818", 
+    href: "https://github.com/syed1818",
     content: "/syed1818",
     icon: <FaGithub height={"50px"} />,
   },
@@ -243,12 +243,12 @@ function Page() {
             }}
           >
             <div className="flex flex-row lg:flex-col items-center">
-              <div className="flex justify-center items-center lg:w-full lg:aspect-square bg-zinc-800 rounded-xl lg:mb-5">
+              <div className="flex justify-center items-center lg:w-full lg:aspect-square bg-zinc-800 rounded-xl lg:mb-5 overflow-hidden">
                 <img
-                  className="rounded-full p-4 lg:p-10 w-[100px] md:w-[150px] lg:w-[200px] aspect-square  bg-zinc-800"
+                  className="rounded-full lg:rounded-xl w-[100px] md:w-[150px] lg:w-full aspect-square object-cover"
                   alt="me"
-                  // UPDATED: Changed extension to .jfif
-                  src="/assets/me.JPG" 
+                  // UPDATED: Fixed extension to .JPG
+                  src="/assets/me.JPG"
                 />
               </div>
               <div className="flex flex-col gap-3 lg:items-center ml-10 md:ml-20 lg:ml-0">
