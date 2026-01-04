@@ -13,6 +13,8 @@ import {
   SiFirebase,
   SiJavascript,
   SiMongodb,
+  SiMysql, // Added for your E-Learning project
+  SiPhp,   // Added for your E-Learning project
   SiPostgresql,
   SiPrisma,
   SiPython,
@@ -207,6 +209,18 @@ const PROJECT_SKILLS = {
     fg: "white",
     icon: <SiSupabase />,
   },
+  php: {
+    title: "PHP",
+    bg: "black",
+    fg: "white",
+    icon: <SiPhp />,
+  },
+  mysql: {
+    title: "MySQL",
+    bg: "black",
+    fg: "white",
+    icon: <SiMysql />,
+  },
 };
 
 export type Project = {
@@ -223,88 +237,82 @@ export type Project = {
 
 const projects: Project[] = [
   {
-    id: "ecommerce-platform",
-    category: "E-Commerce",
-    title: "Modern E-Commerce Store",
-    src: "/assets/projects-screenshots/codingducks/landing.png", // REPLACE with your image path
+    id: "secure-vault",
+    category: "Security",
+    title: "Secure Vault",
+    src: "/assets/projects-screenshots/codingducks/landing.png", // Use a placeholder image until you upload a real screenshot
     screenshots: ["landing.png"],
     skills: {
       frontend: [
         PROJECT_SKILLS.next,
         PROJECT_SKILLS.ts,
         PROJECT_SKILLS.tailwind,
-        PROJECT_SKILLS.shadcn,
       ],
       backend: [
         PROJECT_SKILLS.node,
-        PROJECT_SKILLS.prisma,
-        PROJECT_SKILLS.postgres,
+        PROJECT_SKILLS.express,
       ],
     },
-    live: "https://github.com/syed1818", // REPLACE with live URL if available
-    github: "https://github.com/syed1818/ecommerce-project", // Update with actual repo name
+    live: "https://github.com/syed1818/secure-vault", // Link to repo as live demo isn't available
+    github: "https://github.com/syed1818/secure-vault",
     get content() {
       return (
         <div>
           <TypographyP className="font-mono text-2xl text-center">
-            A full-stack shopping experience.
+            A Robust Password Manager
           </TypographyP>
           <TypographyP className="font-mono ">
-            A robust e-commerce platform built with performance and scalability in mind. 
-            Features include a custom shopping cart, secure checkout via Stripe, 
-            and a comprehensive admin dashboard for inventory management.
+            Developed a secure application to store and manage sensitive credentials using robust encryption algorithms.
+            The app ensures your data remains private and protected against unauthorized access.
           </TypographyP>
           <ProjectsLinks live={this.live} repo={this.github} />
           
           <TypographyH3 className="my-4 mt-8">Key Features</TypographyH3>
           <ul className="list-disc ml-6 font-mono">
-             <li>Real-time inventory updates using WebSockets.</li>
-             <li>Secure authentication and payment processing.</li>
-             <li>Responsive design optimized for mobile conversions.</li>
+             <li>**Encryption:** Implemented strong encryption algorithms to secure user data.</li>
+             <li>**CRUD Operations:** Full capability to create, retrieve, update, and delete password entries.</li>
+             <li>**Password Generator:** Integrated feature to generate strong, unique passwords automatically.</li>
           </ul>
-          {/* Add more screenshots in public/assets/projects-screenshots/ folder and reference them here */}
         </div>
       );
     },
   },
   {
-    id: "task-manager",
-    category: "Productivity",
-    title: "TaskMaster Pro",
-    src: "/assets/projects-screenshots/ghostchat/1.png", // REPLACE with your image path
+    id: "lms-system",
+    category: "Education",
+    title: "E-Learning System",
+    src: "/assets/projects-screenshots/ghostchat/1.png", // Use a placeholder image
     screenshots: ["1.png"],
     live: "https://github.com/syed1818",
-    github: "https://github.com/syed1818/task-manager",
+    github: "https://github.com/syed1818",
     skills: {
       frontend: [
-        PROJECT_SKILLS.react,
-        PROJECT_SKILLS.chakra,
-        PROJECT_SKILLS.reactQuery,
+        PROJECT_SKILLS.js,
+        PROJECT_SKILLS.tailwind, // Assuming tailwind/bootstrap usage
       ],
       backend: [
-        PROJECT_SKILLS.node,
-        PROJECT_SKILLS.express,
-        PROJECT_SKILLS.mongo,
+        PROJECT_SKILLS.php,
+        PROJECT_SKILLS.mysql,
       ],
     },
     get content() {
       return (
         <div>
            <TypographyP className="font-mono text-2xl text-center">
-            Organize your life, effortlessly.
+            Comprehensive Learning Management
           </TypographyP>
           <TypographyP className="font-mono ">
-            A collaborative task management tool inspired by Trello and Asana. 
-            Allows users to create boards, lists, and cards with drag-and-drop functionality.
-            Perfect for teams looking to boost productivity.
+            A full-stack LMS designed to bridge the gap between teachers and students. 
+            The system supports multiple user roles including Admin, Teacher, and Student.
           </TypographyP>
           <ProjectsLinks live={this.live} repo={this.github} />
           
-          <TypographyH3 className="my-4 mt-8">Tech Deep Dive</TypographyH3>
-          <p className="font-mono mb-2">
-            Built using the MERN stack with React Query for efficient state management 
-            and caching. Backend API designed with Express and secured with JWT.
-          </p>
+          <TypographyH3 className="my-4 mt-8">System Capabilities</TypographyH3>
+          <ul className="list-disc ml-6 font-mono">
+             <li>**Role Management:** Distinct dashboards for Admins, Teachers, and Students.</li>
+             <li>**Course Tools:** Features for content upload, assignment management, and tracking.</li>
+             <li>**Payments:** Integrated payment gateway for course enrollments.</li>
+          </ul>
         </div>
       );
     },
@@ -313,9 +321,9 @@ const projects: Project[] = [
     id: "portfolio-v1",
     category: "Personal Brand",
     title: "Syed's Portfolio",
-    src: "/assets/projects-screenshots/portfolio/landing.png", // REPLACE with your image path
+    src: "/assets/projects-screenshots/portfolio/landing.png",
     screenshots: ["landing.png"],
-    live: "https://github.com/syed1818",
+    live: "https://syedshahid.online",
     github: "https://github.com/syed1818/portfolio",
     skills: {
       frontend: [
