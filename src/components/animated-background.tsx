@@ -14,6 +14,21 @@ import { Section, getKeyboardState } from "./animated-background-config";
 
 gsap.registerPlugin(ScrollTrigger);
 
+class SplineErrorBoundary extends React.Component<{}, { hasError: boolean }>{
+  constructor(props: any) {
+    super(props);
+    this.state = { hasError: false };
+  }
+  static getDerivedStateFromError() { return { hasError: true }; }
+  componentDidCatch(error: any, info: any) {
+    console.error('[SplineErrorBoundary] caught error', error, info);
+  }
+  render(){
+    if (this.state.hasError) return null; // silently swallow Spline errors
+    return this.props.children;
+  }
+}
+
 const AnimatedBackground = () => {
   const { isLoading, bypassLoading } = usePreloader();
   const { theme } = useTheme();
@@ -400,6 +415,7 @@ const AnimatedBackground = () => {
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
+      <SplineErrorBoundary>
       <Spline
         className="w-full h-full fixed"
         ref={splineContainer}
@@ -409,6 +425,7 @@ const AnimatedBackground = () => {
         }}
         scene="/assets/skills-keyboard.spline"
       />
+    </SplineErrorBoundary>
     </Suspense>
   );
 };
