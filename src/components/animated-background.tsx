@@ -14,7 +14,7 @@ import { Section, getKeyboardState } from "./animated-background-config";
 
 gsap.registerPlugin(ScrollTrigger);
 
-class SplineErrorBoundary extends React.Component<{}, { hasError: boolean }>{
+class SplineErrorBoundary extends React.Component<React.PropsWithChildren<{}>, { hasError: boolean }>{
   constructor(props: any) {
     super(props);
     this.state = { hasError: false };
