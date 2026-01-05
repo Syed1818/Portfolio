@@ -20,9 +20,10 @@ import SectionWrapper from "../ui/section-wrapper";
 
 const ProjectsSection = () => {
   return (
-    <SectionWrapper id="projects" className="max-w-7xl mx-auto md:h-[130vh]">
+    // FIXED: Changed md:h-[130vh] to min-h-screen and added py-20 to prevent overlap
+    <SectionWrapper id="projects" className="max-w-7xl mx-auto min-h-screen py-20">
       <SectionHeader id='projects' title="Projects" />
-      <div className="grid grid-cols-1 md:grid-cols-3">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4">
         {projects.map((project, index) => (
           <Modall key={project.src} project={project} />
         ))}
@@ -30,26 +31,27 @@ const ProjectsSection = () => {
     </SectionWrapper>
   );
 };
+
 const Modall = ({ project }: { project: Project }) => {
   return (
     <div className="flex items-center justify-center">
       <Modal>
         <ModalTrigger className="bg-transparent flex justify-center group/modal-btn">
           <div
-            className="relative w-[400px] h-auto rounded-lg overflow-hidden"
+            className="relative w-[350px] md:w-[400px] h-auto rounded-lg overflow-hidden"
             style={{ aspectRatio: "3/2" }}
           >
             <Image
-              className="absolute w-full h-full top-0 left-0 hover:scale-[1.05] transition-all"
+              className="absolute w-full h-full top-0 left-0 hover:scale-[1.05] transition-all object-cover"
               src={project.src}
               alt={project.title}
-              width={300}
+              width={400}
               height={300}
             />
             <div className="absolute w-full h-1/2 bottom-0 left-0 bg-gradient-to-t from-black via-black/85 to-transparent pointer-events-none">
               <div className="flex flex-col h-full items-start justify-end p-6">
-                <div className="text-lg text-left">{project.title}</div>
-                <div className="text-xs bg-white text-black rounded-lg w-fit px-2">
+                <div className="text-lg text-left text-white font-semibold">{project.title}</div>
+                <div className="text-xs bg-white text-black rounded-lg w-fit px-2 mt-1">
                   {project.category}
                 </div>
               </div>
@@ -103,35 +105,6 @@ const ProjectContents = ({ project }: { project: Project }) => {
           </div>
         )}
       </div>
-      {/* <div className="flex justify-center items-center">
-        {project.screenshots.map((image, idx) => (
-          <motion.div
-            key={"images" + idx}
-            style={{
-              rotate: Math.random() * 20 - 10,
-            }}
-            whileHover={{
-              scale: 1.1,
-              rotate: 0,
-              zIndex: 100,
-            }}
-            whileTap={{
-              scale: 1.1,
-              rotate: 0,
-              zIndex: 100,
-            }}
-            className="rounded-xl -mr-4 mt-4 p-1 bg-white dark:bg-neutral-800 dark:border-neutral-700 border border-neutral-100 flex-shrink-0 overflow-hidden"
-          >
-            <Image
-              src={`${project.src.split("1.png")[0]}${image}`}
-              alt="screenshots"
-              width="500"
-              height="500"
-              className="rounded-lg h-20 w-20 md:h-40 md:w-40 object-cover flex-shrink-0"
-            />
-          </motion.div>
-        ))}
-      </div> */}
       {project.content}
     </>
   );
