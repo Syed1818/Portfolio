@@ -16,28 +16,50 @@ const NewsletterForm = () => {
     e.preventDefault();
     setLoading(true);
     try {
+      console.log("[newsletter] submitting", email);
+
       const res = await fetch("/api/newsletter", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ email }),
+        // Use manual redirect so we can detect 3xx responses
+        redirect: "manual",
       });
-      const data = await res.json();
-      if (data.error) throw new Error(data.error);
-      
+
+      console.log(
+        `[newsletter] response status=${res.status} location=${res.headers.get("location")}`
+      );
+
+      const text = await res.text();
+      let data: any = null;
+      try {
+        data = JSON.parse(text);
+      } catch (_err) {
+        data = { text };
+      }
+
+      console.log("[newsletter] response body", data);
+
+      if (!res.ok || data?.error || data?.resendError) {
+        const errMsg = data?.error || data?.resendError || text || "Unknown error";
+        throw new Error(errMsg);
+      }
+
       toast({
         title: "Welcome aboard! 🚀",
         description: "You've been successfully added to the newsletter.",
         variant: "default",
         className: cn("top-0 mx-auto flex fixed md:top-4 md:right-4"),
       });
-      
+
       setEmail("");
-    } catch (err) {
+    } catch (err: any) {
+      console.error("[newsletter] error", err);
       toast({
         title: "Error",
-        description: "Something went wrong! Please try again.",
+        description: err?.message || "Something went wrong! Please try again.",
         className: cn(
           "top-0 w-full flex justify-center fixed md:max-w-7xl md:top-4 md:right-4"
         ),

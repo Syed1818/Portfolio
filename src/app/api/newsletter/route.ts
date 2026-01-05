@@ -13,11 +13,15 @@ const Subscription = z.object({
 export async function POST(req: Request) {
   try {
     const body = await req.json();
+    console.log("[api/newsletter] received body", body);
+
     const { success: zodSuccess, data: zodData, error: zodError } =
       Subscription.safeParse(body);
 
-    if (!zodSuccess)
+    if (!zodSuccess) {
+      console.log("[api/newsletter] validation failed", zodError?.format());
       return NextResponse.json({ error: zodError?.message }, { status: 400 });
+    }
 
     const { data: resendData, error: resendError } = await resend.emails.send({
       from: "Portfolio Newsletter <onboarding@resend.dev>",
@@ -28,12 +32,15 @@ export async function POST(req: Request) {
       }),
     });
 
+    console.log("[api/newsletter] resend result", { resendData, resendError });
+
     if (resendError) {
       return NextResponse.json({ resendError }, { status: 500 });
     }
 
-    return NextResponse.json(resendData);
+    return NextResponse.json({ ok: true, data: resendData });
   } catch (error) {
+    console.error("[api/newsletter] error", error);
     return NextResponse.json({ error: String(error) }, { status: 500 });
   }
 }
