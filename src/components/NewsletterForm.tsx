@@ -12,8 +12,11 @@ const NewsletterForm = () => {
   const [loading, setLoading] = React.useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  // Accept optional event so we can call this function directly from an onClick
+  const handleSubmit = async (e?: React.FormEvent<HTMLFormElement>) => {
+    if (e && typeof (e as any).preventDefault === "function") {
+      e.preventDefault();
+    }
     setLoading(true);
     try {
       console.log("[newsletter] submitting", email);
@@ -70,7 +73,7 @@ const NewsletterForm = () => {
   };
 
   return (
-    <form className="max-w-md mx-auto mt-8 relative z-20" onSubmit={handleSubmit}>
+    <form className="max-w-md mx-auto mt-8 relative z-20" onSubmit={(e) => e.preventDefault()}>
       <div className="flex flex-col space-y-4">
         <div className="space-y-2">
           <Label htmlFor="email" className="text-muted-foreground">
@@ -93,7 +96,8 @@ const NewsletterForm = () => {
         <Button
           disabled={loading}
           className="bg-gradient-to-br relative group/btn from-black dark:from-zinc-900 dark:to-zinc-900 to-neutral-600 block dark:bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"
-          type="submit"
+          type="button"
+          onClick={() => handleSubmit()}
         >
           {loading ? (
             <div className="flex items-center justify-center">
