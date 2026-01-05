@@ -9,7 +9,7 @@ import { sleep } from "@/lib/utils";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { usePreloader } from "./preloader";
 import { useTheme } from "next-themes";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { Section, getKeyboardState } from "./animated-background-config";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -404,14 +404,19 @@ const AnimatedBackground = () => {
     };
   }, [activeSection, splineApp]);
 
-  // Reveal keyboard on load/route change
+  // Reveal keyboard on load/route change — only navigate if we're on the homepage
+  const pathname = usePathname();
   useEffect(() => {
     const hash = activeSection === "hero" ? "#" : `#${activeSection}`;
-    router.push("/" + hash, { scroll: false });
+
+    // Avoid forcing navigation away from other routes (e.g., /news)
+    if (pathname === "/") {
+      router.push("/" + hash, { scroll: false });
+    }
 
     if (!splineApp || isLoading || keyboardRevealed) return;
     updateKeyboardTransform();
-  }, [splineApp, isLoading, activeSection]);
+  }, [splineApp, isLoading, activeSection, pathname]);
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
